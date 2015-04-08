@@ -23,7 +23,7 @@ public class LlServlet extends HttpServlet {
 		String url = "/index.html";
 		//
 		String userUrl = request.getParameter("userUrl");
-		Document doc = UrlParser.getPageHtml(userUrl);
+		Document doc = Jsoup.connect(userUrl).get();
 		String htmlBody = doc.select("body").html();
 		//
 		//String body = request.getParameter("body");
