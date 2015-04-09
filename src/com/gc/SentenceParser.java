@@ -8,7 +8,7 @@ public class SentenceParser {
 	public static Holder parseParagraphsIntoSentences(Holder ourHolder) {
 		Random rand = new Random();
 		String[] paragraphs = ourHolder.getRandomTargetedSentences();
-		ArrayList<String> listOfTargets = new ArrayList<String>();
+		ArrayList<String> listofSentencesToTranslate = new ArrayList<String>();
 
 		for (int i = 0; i < paragraphs.length; i++) {
 			String[] tempArray = paragraphs[i].split("(?<=[.?!])\\s+(?=[A-Z])");
@@ -17,16 +17,17 @@ public class SentenceParser {
 
 				int max = tempArray.length;
 				int randomNum = rand.nextInt(max);
-				listOfTargets.add(tempArray[randomNum]);
+				listofSentencesToTranslate.add(tempArray[randomNum]);
 			}
 		}
 
-		String[] arrayOfTargets = new String[listOfTargets.size()];
-		for (int i = 0; i < arrayOfTargets.length; i++) {
-			arrayOfTargets[i] = listOfTargets.get(i);
+		String[] arrayOfSentencesToTranslate = new String[listofSentencesToTranslate
+				.size()];
+		for (int i = 0; i < arrayOfSentencesToTranslate.length; i++) {
+			arrayOfSentencesToTranslate[i] = listofSentencesToTranslate.get(i);
 		}
 
-		ourHolder = new Holder(ourHolder, arrayOfTargets);
+		ourHolder = new Holder(ourHolder, arrayOfSentencesToTranslate);
 
 		return ourHolder;
 	}

@@ -10,12 +10,12 @@ public class ParagraphParser {
 		String body = ourHolder.getBody();
 
 		Document doc = Jsoup.parse(body);
-		Elements elements = doc.select("p");
+		Elements paragraphElements = doc.select("p");
 
-		String[] paragraphs = new String[elements.size()];
+		String[] paragraphs = new String[paragraphElements.size()];
 
 		for (int i = 0; i < paragraphs.length; i++) {
-			paragraphs[i] = elements.get(i).text();
+			paragraphs[i] = paragraphElements.get(i).text();
 		}
 
 		ourHolder = new Holder(ourHolder, paragraphs);

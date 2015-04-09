@@ -13,10 +13,7 @@ public class WordParser {
 		for (int i = 0; i < paragraphs.length; i++) {
 
 			String paragraphWithoutPunctuation = paragraphs[i].replaceAll(
-					"[,.:;()]", ""); // need to work on this regex, especially
-										// what to do with "
-										// and ' such as in words like don't
-										// can't it's
+					"[,.:;()]", "");
 			String[] arrayOfWordsInParagraph = paragraphWithoutPunctuation
 					.split("\\s+");
 

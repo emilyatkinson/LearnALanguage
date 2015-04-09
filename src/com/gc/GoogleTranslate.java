@@ -20,11 +20,11 @@ public class GoogleTranslate {
         key = apiKey;
     }
  
-    String translte(String text, String from, String to) {
+    String translte(String text, String originalLanguage, String translationLanguage) {
         StringBuilder result = new StringBuilder();
         try {
             String encodedText = URLEncoder.encode(text, "UTF-8");
-            String urlStr = "https://www.googleapis.com/language/translate/v2?key=" + key + "&q=" + encodedText + "&target=" + to + "&source=" + from;
+            String urlStr = "https://www.googleapis.com/language/translate/v2?key=" + key + "&q=" + encodedText + "&target=" + translationLanguage + "&source=" + originalLanguage;
  
             URL url = new URL(urlStr);
  
@@ -68,10 +68,10 @@ public class GoogleTranslate {
  
         return null;
     }
-    public static String googleTranslateApi(String target, String from, String to) {
+    public static String googleTranslateApi(String target, String originalLanguage, String translationLanguage) {
  
         GoogleTranslate translator = new GoogleTranslate("AIzaSyBP23_YSrUG9CxR-MdiBdV71E9tgpO02Zo");
-        String translation = translator.translte(target, from, to);
+        String translation = translator.translte(target, originalLanguage, translationLanguage);
         return translation;
     }
 }

@@ -11,24 +11,31 @@ public class OurTranslator {
 
 	public static Holder translateSentences(Holder ourHolder) {
 
-		String language = ourHolder.getLanguage();
-		language = WordUtils.capitalize(language);
-		String[] randomTargetedSentencesArray = ourHolder.getRandomTargetedSentences();
+		String language = getLanguageCode(ourHolder);
+		String[] randomTargetedSentencesArray = ourHolder
+				.getRandomTargetedSentences();
 		String[] translations = new String[randomTargetedSentencesArray.length];
-		List<LanguageCode> code = LanguageCode.findByName(language);
-		language = code.get(0).toString();
 
 		for (int i = 0; i < randomTargetedSentencesArray.length; i++) {
-			translations[i] = GoogleTranslate.googleTranslateApi(randomTargetedSentencesArray[i],
-					Language.ENGLISH, language);
-//					+ "THIS IS WHERE THE COMMENT BELOW GOES, DON'T PUT IT IN HERE UNLESS YOU WANT TO MAKE ME OVERDRAFT, I'M BROKE!!";
+			translations[i] = GoogleTranslate
+					.googleTranslateApi(randomTargetedSentencesArray[i],
+							Language.ENGLISH, language);
+
 		}
 
-		ourHolder = new Holder(ourHolder, randomTargetedSentencesArray, translations);
+		ourHolder = new Holder(ourHolder, randomTargetedSentencesArray,
+				translations);
 
 		return ourHolder;
 	}
-}
 
-//GoogleTranslate.googleTranslateApi(targets[i],
-//		Language.ENGLISH, language)
+	public static String getLanguageCode(Holder ourHolder) {
+		String languageCode = ourHolder.getLanguage();
+		languageCode = WordUtils.capitalize(languageCode);
+		List<LanguageCode> code = LanguageCode.findByName(languageCode);
+		languageCode = code.get(0).toString();
+
+		return languageCode;
+
+	}
+}

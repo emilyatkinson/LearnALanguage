@@ -5,7 +5,7 @@ public class Replacer {
 	public static Holder replaceRandomTargetedSentencesWithTranslations(
 			Holder ourHolder) throws IllegalArgumentException,
 			IllegalAccessException, NoSuchFieldException, SecurityException {
-		String[] targets = ourHolder.getRandomTargetedSentences();
+		String[] englishText = ourHolder.getRandomTargetedSentences();
 		String[] translations = ourHolder.getTranslations();
 		String body = new String(ourHolder.getBody());
 
@@ -19,12 +19,11 @@ public class Replacer {
 				String highlightedTranslatedText = "<mark>" + translations[i]
 						+ "</mark>";
 				translationWithHoverOver = "<a href=\"#\" class=\"tip\" title=\""
-						+ targets[i]
+						+ englishText[i]
 						+ "\">"
 						+ highlightedTranslatedText
 						+ "</a>";
-				String englishText = targets[i];
-				body = body.replace(englishText, translationWithHoverOver);
+				body = body.replace(englishText[i], translationWithHoverOver);
 
 			}
 
