@@ -27,7 +27,7 @@ public class LlServlet extends HttpServlet {
 		String htmlBody = doc.select("body").html();
 		//
 		//String body = request.getParameter("body");
-		String language[] = request.getParameterValues("language");
+		String [] language = request.getParameterValues("language");
 		String[] level= request.getParameterValues("level");
 		
 		ourHolder.setBody(htmlBody);
@@ -37,7 +37,6 @@ public class LlServlet extends HttpServlet {
 			ourHolder = OUR_ENGINE.ourEngine(ourHolder, level);
 		} catch (IllegalArgumentException | IllegalAccessException
 				| NoSuchFieldException | SecurityException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
