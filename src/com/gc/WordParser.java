@@ -7,7 +7,7 @@ public class WordParser {
 
 	public static Holder parseParagraphsIntoWords(Holder ourHolder) {
 		Random rand = new Random();
-		String[] paragraphs = ourHolder.getTargets();
+		String[] paragraphs = ourHolder.getRandomTargetedSentences();
 		ArrayList<String> listOfWordTargets = new ArrayList<String>();
 
 		for (int i = 0; i < paragraphs.length; i++) {
@@ -30,7 +30,7 @@ public class WordParser {
 				}
 				listOfWordTargets.add(arrayOfWordsInParagraph[randomNum]);
 			}
-		
+
 		}
 
 		String[] arrayOfWordTargets = new String[listOfWordTargets.size()];

@@ -28,12 +28,13 @@ public class LlServlet extends HttpServlet {
 		//
 		//String body = request.getParameter("body");
 		String language[] = request.getParameterValues("language");
+		String[] level= request.getParameterValues("level");
 		
 		ourHolder.setBody(htmlBody);
 		ourHolder.setLanguage(language[0]);
 		
 		try {
-			ourHolder = OUR_ENGINE.ourEngine(ourHolder);
+			ourHolder = OUR_ENGINE.ourEngine(ourHolder, level);
 		} catch (IllegalArgumentException | IllegalAccessException
 				| NoSuchFieldException | SecurityException e) {
 			// TODO Auto-generated catch block

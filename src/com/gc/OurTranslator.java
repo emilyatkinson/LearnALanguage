@@ -13,18 +13,18 @@ public class OurTranslator {
 
 		String language = ourHolder.getLanguage();
 		language = WordUtils.capitalize(language);
-		String[] targets = ourHolder.getTargets();
-		String[] translations = new String[targets.length];
+		String[] randomTargetedSentencesArray = ourHolder.getRandomTargetedSentences();
+		String[] translations = new String[randomTargetedSentencesArray.length];
 		List<LanguageCode> code = LanguageCode.findByName(language);
 		language = code.get(0).toString();
 
-		for (int i = 0; i < targets.length; i++) {
-			translations[i] = GoogleTranslate.googleTranslateApi(targets[i],
+		for (int i = 0; i < randomTargetedSentencesArray.length; i++) {
+			translations[i] = GoogleTranslate.googleTranslateApi(randomTargetedSentencesArray[i],
 					Language.ENGLISH, language);
 //					+ "THIS IS WHERE THE COMMENT BELOW GOES, DON'T PUT IT IN HERE UNLESS YOU WANT TO MAKE ME OVERDRAFT, I'M BROKE!!";
 		}
 
-		ourHolder = new Holder(ourHolder, targets, translations);
+		ourHolder = new Holder(ourHolder, randomTargetedSentencesArray, translations);
 
 		return ourHolder;
 	}
