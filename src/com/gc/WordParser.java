@@ -22,7 +22,7 @@ public class WordParser {
 
 				int max = arrayOfWordsInParagraph.length;
 				int randomNum = rand.nextInt(max);
-				while (arrayOfWordsInParagraph[randomNum].length() < 4) {
+				while (arrayOfWordsInParagraph[randomNum].length() < 5) {
 					arrayOfWordsInParagraph[randomNum] = arrayOfWordsInParagraph[randomNum + 1];
 				}
 				listOfWordTargets.add(arrayOfWordsInParagraph[randomNum]);
