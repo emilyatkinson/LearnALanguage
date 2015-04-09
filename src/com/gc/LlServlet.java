@@ -21,7 +21,7 @@ public class LlServlet extends HttpServlet {
 		Holder ourHolder = new Holder();
 		
 		String url = "/index.html";
-		//
+		
 		String userUrl = request.getParameter("userUrl");
 		Document doc = Jsoup.connect(userUrl).get();
 		String htmlBody = doc.select("body").html();
@@ -32,7 +32,13 @@ public class LlServlet extends HttpServlet {
 		ourHolder.setBody(htmlBody);
 		ourHolder.setLanguage(language[0]);
 		
-		ourHolder = OUR_ENGINE.ourEngine(ourHolder);
+		try {
+			ourHolder = OUR_ENGINE.ourEngine(ourHolder);
+		} catch (IllegalArgumentException | IllegalAccessException
+				| NoSuchFieldException | SecurityException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		//
 		String newBody = ourHolder.getBody();

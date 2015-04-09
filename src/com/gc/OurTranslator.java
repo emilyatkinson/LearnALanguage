@@ -19,7 +19,9 @@ public class OurTranslator {
 		language = code.get(0).toString();
 
 		for (int i = 0; i < targets.length; i++) {
-			translations[i] = "THIS IS WHERE THE COMMENT BELOW GOES, DON'T PUT IT IN HERE UNLESS YOU WANT TO MAKE ME OVERDRAFT, I'M BROKE!!!";
+			translations[i] = GoogleTranslate.googleTranslateApi(targets[i],
+					Language.ENGLISH, language);
+//					+ "THIS IS WHERE THE COMMENT BELOW GOES, DON'T PUT IT IN HERE UNLESS YOU WANT TO MAKE ME OVERDRAFT, I'M BROKE!!";
 		}
 
 		ourHolder = new Holder(ourHolder, targets, translations);
