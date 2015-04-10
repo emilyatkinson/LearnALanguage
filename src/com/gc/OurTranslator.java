@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.apache.commons.lang3.text.WordUtils;
 
-import com.gtranslate.Language;
 import com.neovisionaries.i18n.LanguageCode;
 
 public class OurTranslator {
@@ -19,7 +18,7 @@ public class OurTranslator {
 		for (int i = 0; i < randomTargetedSentencesArray.length; i++) {
 			translations[i] = GoogleTranslate
 					.googleTranslateApi(randomTargetedSentencesArray[i],
-							Language.ENGLISH, language);
+							"en", language);
 
 		}
 
