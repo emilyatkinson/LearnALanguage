@@ -1,10 +1,29 @@
 <!DOCTYPE html>
 <html>
+<head>
+<link rel="stylesheet" type="text/css" href="ourstyle.css">
+</head>
 
 <body>
-	<h1>LanguageLearner</h1>
-	<p>Please select the language you would like to learn:</p>
-	<form action="LlServlet" method="post">
+
+                <div id="backgroundchange">
+                    <div class="backgroundimg" id="back1"></div>
+                    <div class="backgroundimg" id="back2"></div>
+                    <div class="backgroundimg" id="back3"></div>
+                    <div class="backgroundimg" id="back4"></div>
+                    <div class="backgroundimg" id="back5"></div>
+                </div>
+
+ <div class="container"> 
+        <h1 class="bubble" >LanguageLearner</h1>
+   
+     <p class="bubble bubble--alt">
+        What if you could learn that new language you've been meaning to learn without much added effort? Full immersion would be the quickest way to learn it. But instead of rearranging your life for a Costa Rican crash-course, Language Learner application brings language immersion to your daily internet-filled existence, no matter where you are. At this iteration, you choose the language you'd like to learn, the level you feel you are at, and let it run. It will translate words or sentences into your chosen language. Try to understand the translations in context, and hover over for the original word or sentence to see if you were correct. You'll be learning more than you realize in this simple, language immersive application.
+        </p>
+   
+
+	<p class="bubble">Please select the language you would like to learn:</p>
+	<form class="bubble bubble--alt" action="LlServlet" method="post">
 		<select name="language">
 			<option value="arabic">Arabic</option>
 			<option value="filipino">Filipino</option>
@@ -20,10 +39,12 @@
 		</select> <select name="level">
 			<option value="beginner">Beginner</option>
 			<option value="intermediate">Intermediate</option>
-		</select> <label class="pad_top">Please enter URL:</label> <input type="text"
+		</select>&nbsp;<br> <label class="pad_top">Please enter URL:</label> <input type="text"
 			name="userUrl"><br> <input type="submit"
 			value="Let's Translate!" class="margin_left">
 	</form>
+    </div>
+  
 </body>
 
 </html>
