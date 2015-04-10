@@ -19,7 +19,7 @@ public class Engine {
 		
 		ourHolder = OurTranslator.translateSentences(ourHolder);
 		ourHolder = Replacer
-				.replaceRandomTargetedSentencesWithTranslations(ourHolder);
+				.replaceTargetsWithTranslations(ourHolder);
 
 		return ourHolder;
 	}

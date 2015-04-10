@@ -11,14 +11,11 @@ public class OurTranslator {
 	public static Holder translateSentences(Holder ourHolder) {
 
 		String language = getLanguageCode(ourHolder);
-		String[] randomTargetedSentencesArray = ourHolder
-				.getRandomTargetedSentences();
+		String[] randomTargetedSentencesArray = ourHolder.getTargets();
 		String[] translations = new String[randomTargetedSentencesArray.length];
 
 		for (int i = 0; i < randomTargetedSentencesArray.length; i++) {
-			translations[i] = GoogleTranslate
-					.googleTranslateApi(randomTargetedSentencesArray[i],
-							"en", language);
+			translations[i] = GoogleTranslate.googleTranslateApi(randomTargetedSentencesArray[i], "en", language);
 
 		}
 
@@ -35,6 +32,5 @@ public class OurTranslator {
 		languageCode = code.get(0).toString();
 
 		return languageCode;
-
 	}
 }

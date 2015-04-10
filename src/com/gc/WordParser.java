@@ -7,19 +7,16 @@ public class WordParser {
 
 	public static Holder parseParagraphsIntoWords(Holder ourHolder) {
 		Random rand = new Random();
-		String[] paragraphs = ourHolder.getRandomTargetedSentences();
+		String[] paragraphs = ourHolder.getTargets();
 		ArrayList<String> listOfWordTargets = new ArrayList<String>();
 
 		for (int i = 0; i < paragraphs.length; i++) {
 
-			String paragraphWithoutPunctuation = paragraphs[i].replaceAll(
-					"[,.:;()]", "");
-			String[] arrayOfWordsInParagraph = paragraphWithoutPunctuation
-					.split("\\s+");
+			String paragraphWithoutPunctuation = paragraphs[i].replaceAll("[,.:;()]", "");
+			String[] arrayOfWordsInParagraph = paragraphWithoutPunctuation.split("\\s+");
 
 			int numberOfSentences = countWordsInParagraph(arrayOfWordsInParagraph);
 			if (paragraphHasMoreThanThreeWords(numberOfSentences)) {
-
 				int max = arrayOfWordsInParagraph.length;
 				int randomNum = rand.nextInt(max);
 				while (arrayOfWordsInParagraph[randomNum].length() < 5) {

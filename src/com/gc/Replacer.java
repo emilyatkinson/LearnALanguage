@@ -2,10 +2,10 @@ package com.gc;
 
 public class Replacer {
 
-	public static Holder replaceRandomTargetedSentencesWithTranslations(
+	public static Holder replaceTargetsWithTranslations(
 			Holder ourHolder) throws IllegalArgumentException,
 			IllegalAccessException, NoSuchFieldException, SecurityException {
-		String[] englishText = ourHolder.getRandomTargetedSentences();
+		String[] englishText = ourHolder.getTargets();
 		String[] translations = ourHolder.getTranslations();
 		String body = new String(ourHolder.getBody());
 

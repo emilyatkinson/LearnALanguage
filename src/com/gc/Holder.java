@@ -40,7 +40,7 @@ public class Holder implements Serializable {
 		this.language = language;
 	}
 
-	public String[] getRandomTargetedSentences() {
+	public String[] getTargets() {
 		return targets;
 	}
 
