@@ -16,13 +16,8 @@ public class Replacer {
 		for (int i = 0, n = chars.length; i < n; i++) {
 			String translationWithHoverOver = null;
 			if (i < translations.length) {
-				String highlightedTranslatedText = "<mark>" + translations[i]
-						+ "</mark>";
-				translationWithHoverOver = "<a href=\"#\" class=\"tip\" title=\""
-						+ englishText[i]
-						+ "\">"
-						+ highlightedTranslatedText
-						+ "</a>";
+				String highlightedTranslatedText = "<mark>" + translations[i] + "</mark>";
+				translationWithHoverOver = "<class=\"tip\" title=\"" + englishText[i] + "\">" + highlightedTranslatedText + "</class>";
 				body = body.replace(englishText[i], translationWithHoverOver);
 
 			}
