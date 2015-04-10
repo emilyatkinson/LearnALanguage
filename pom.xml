@@ -7,6 +7,12 @@
 	<packaging>war</packaging>
 	<dependencies>
 		<dependency>
+			<groupId>org.apache.tomcat</groupId>
+			<artifactId>tomcat-api</artifactId>
+			<version>7.0.19</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
 			<groupId>com.neovisionaries</groupId>
 			<artifactId>nv-i18n</artifactId>
 			<version>1.14</version>
