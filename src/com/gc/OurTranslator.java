@@ -15,7 +15,7 @@ public class OurTranslator {
 		String[] translations = new String[randomTargetedSentencesArray.length];
 
 		for (int i = 0; i < randomTargetedSentencesArray.length; i++) {
-			translations[i] = GoogleTranslate.googleTranslateApi(randomTargetedSentencesArray[i], "en", language);
+			translations[i] = MyMemoryTranslator.translate(randomTargetedSentencesArray[i], language);
 
 		}
 
